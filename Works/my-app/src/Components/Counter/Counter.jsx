@@ -1,25 +1,28 @@
 import React from 'react'
 import { useContext } from 'react'
 import { Context } from '../Context/Context'
-
 export default function Counter() {
     
-    const number = useContext(Context)
-    // console.log(number);
+   
+    const [num,setNum] = useContext(Context)
     function Inc() {
-        number.setCount(number.count + 1)
+        setNum(num + 1)
     }
     
     function Dec() {
-        number.setCount(number.count - 1)
+        setNum(num - 1)
         
     }
-
+    const ResetValue = () => {
+        setNum(num = 0)
+    }
     return (
         <div>
-            <h1>{number.count}</h1>
+            
+            <h1>{num}</h1>
             <button onClick={Inc} >Increment</button>
             <button onClick={Dec}>Decrement</button>
+            <button onClick={ResetValue}>Resert</button>
         </div>
     )
 }
